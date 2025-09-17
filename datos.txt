@@ -1,0 +1,30 @@
+---------------------------------------------------------------------------------------------
+- DEPENDENCIAS
+---------------------------------------------------------------------------------------------
+express:
+Es para crear el servidor web.
+
+mysql2:
+Es el conector que permite a Node.js hablar con MySQL.
+
+sequelize:
+Es un ORM que simplifica el trabajo con la base de datos.
+
+dotenv: 
+Te permite usar variables de entorno para las credenciales de la base de datos.
+---------------------------------------------------------------------------------------------
+- ESQUELETO BACK-END
+---------------------------------------------------------------------------------------------
+📁SISTEMA-DE-GESTION/
+|--📁config/
+|--📁middlewares/
+|--📁model/
+|--📁service/
+|--📁controller/
+|--📁routes/
+|--📁database/
+|--🛠️node_modules/
+|--📄server.js
+|--⚙️.env
+|--♦️.gitignore
+
