@@ -1,4 +1,6 @@
 # Sistema-de-Gestion
+Esqueleto del BackEnd:
+```
 📁SISTEMA-DE-GESTION/ 
 |--📁config/
 |--📁middlewares/
@@ -11,3 +13,4 @@
 |--📄server.js
 |--⚙️.env
 |--♦️.gitignore
+```
