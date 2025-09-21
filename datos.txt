@@ -17,14 +17,115 @@ Te permite usar variables de entorno para las credenciales de la base de datos.
 ---------------------------------------------------------------------------------------------
 📁SISTEMA-DE-GESTION/
 |--📁config/
-|--📁middlewares/
-|--📁model/
-|--📁service/
-|--📁controller/
-|--📁routes/
+|--📁controllers/
 |--📁database/
+|--📁middlewares/
+|--📁models/
+|--📁routes/
+|--📁services/
 |--🛠️node_modules/
 |--📄server.js
 |--⚙️.env
 |--♦️.gitignore
+---------------------------------------------------------------------------------------------
+- CREAR REPOSITORIO DE GITHUB
+---------------------------------------------------------------------------------------------
+🧩Esto crea un repositorio Git local:
+git init
+
+🧩Añadir archivos al repositorio local:
+git add . 
+
+🧩Hacer commit:
+git commit -m "Primer commit"
+
+🧩Conectar tu repositorio local con GitHub:
+git remote add origin https://github.com/tu-usuario/mi-proyecto.git 
+
+🧩Subir los archivos a GitHub:
+git branch -M main   
+git push -u origin main
+
+🧭Traer los cambios remotos y hacer merge:
+git pull origin main --rebase
+
+🧭Despues:
+git add .
+git rebase --continue
+
+🧭Reintentar push:
+git push -u origin main
+---------------------------------------------------------------------------------------------
+- dotenv
+---------------------------------------------------------------------------------------------
+se encarga de leer mis variables de entorno desde mi archivo .env para ello ocupa mi funcion
+config(), mi config se ocupa de buscar mi archivo .env, luego lee cada una de ellas en el a-
+rchivo y las inyecta en objeto de nodejs llamado 'process.env'.
+
+require('dotenv').config();
+---------------------------------------------------------------------------------------------
+- express
+---------------------------------------------------------------------------------------------
+Express es un framework de Node.js que simplifica la creación de servidores web y APIs. Su p-
+rincipal función es manejar las peticiones HTTP (GET, POST, etc.)(HyperText Transfer Protoco)
+
+const express = require("express");
+const app = express();
+
+app.use(): Este método es para usar middleware. Un middleware es una función que se ejecuta en 
+cada petición antes de que llegue a tu ruta final.
+
+app.route(): Para crear cadenas de rutas que simplifican la definición de múltiples métodos H-
+TTP para la misma URL.
+
+app.listen(): Este método es el que inicia tu servidor. Le dice a Express que "escuche" las pe
+ticiones en un puerto específico (process.env.PORT).
+
+app.get(): Para obtener datos del servidor.
+
+app.post(): Para enviar datos al servidor (por ejemplo, para crear un nuevo usuario).
+
+app.put(): Para actualizar datos existentes.
+
+app.delete(): Para eliminar datos.
+---------------------------------------------------------------------------------------------
+- Contenedor vacio
+---------------------------------------------------------------------------------------------
+A este contenedor tiene como objetivos ser "una caja de herramientas vacia" esta puede recib-
+ir "herramientas" para que pueda ser utilizadas por ella misma.
+
+const miHerramienta = require('herramientas');
+const db = {}; ----> db = miHerramienta ----> db.miHerramienta();
+---------------------------------------------------------------------------------------------
+- ANALIZAR DATOS JSON (req.body)
+---------------------------------------------------------------------------------------------
+Funciona como un traductor, es decir, preparar a mi servidor para recibir y entender datos en 
+formato JSON.
+
+app.use(express.json());
+
+Ademas el metodo use, es versatil y fundamental por que puede recibir como argumento cualquier
+funcion que tenga un proposito de actuar como middleware: express.json(), express.static(), e-
+xpress.urlencoded(). Digamos que su proposito es:
+ 
+-. Verifica si el usuario está autenticado.
+-. Registra información de la petición.
+-. Valida si el cuerpo de la petición tiene el formato correcto.
+
+---------------------------------------------------------------------------------------------
+- Sync(alter: {true})
+---------------------------------------------------------------------------------------------
+Se utiliza para sincronizar los modelos definidos en tu código con las tablas de tu base de d
+atos.Su propósito principal es crear o modificar las tablas para que coincidan con la estruc-
+tura de tus modelos.
+
+{ force: true }:Elimina las tablas existentes que coincidan con los modelos y luego las recrea 
+desde cero.
+
+{ alter: true }:Compara los modelos con las tablas existentes y realiza solo las modificaciones 
+necesarias (como añadir una nueva columna o cambiar una existente).
+
+db.sequelize.sync({alter: true})
+
+donde db = sequelize (config) y db = Sequelize (instancia Sequelize)
 
