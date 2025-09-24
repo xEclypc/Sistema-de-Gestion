@@ -129,3 +129,38 @@ db.sequelize.sync({alter: true})
 
 donde db = sequelize (config) y db = Sequelize (instancia Sequelize)
 
+---------------------------------------------------------------------------------------------
+- Respuestas
+---------------------------------------------------------------------------------------------
+💡 Respuestas Exitosas(2xx):
+
+200 OK: El código más común. Úsalo para una solicitud GET exitosa. Significa que los datos  que
+solicitaste están en la respuesta.
+
+201 Created: Úsalo para una solicitud POST exitosa. Significa que un nuevo recurso fue creado en
+el servidor como resultado de la solicitud. Este es el que usamos para crear un nuevo usuario.
+
+204 No Content: Úsalo para una solicitud DELETE exitosa o una solicitud PUT que no devuelva datos. 
+Significa que la solicitud fue exitosa, pero no hay datos que enviar en el cuerpo de la respuesta.
+
+💡 Respuestas de Error-Cliente(4xx):
+
+400 Bad Request: La solicitud del cliente no es válida. Por ejemplo, el cuerpo de la solicitud JSON
+ está mal formado o faltan datos requeridos.
+
+401 Unauthorized: La solicitud requiere autenticación. Úsalo cuando un cliente intenta acceder a un
+ recurso sin credenciales válidas.
+
+403 Forbidden: El cliente está autenticado, pero no tiene permiso para acceder al recurso.
+
+404 Not Found: El recurso que el cliente solicitó no existe. Úsalo cuando la ruta o el ID de un rec-
+urso no se encuentra.
+
+409 Conflict: La solicitud no se pudo completar debido a un conflicto con el estado actual del recurso.
+ Por ejemplo, si intentas crear un usuario con un email que ya existe.
+
+💡 Respuestas de Error-Servidor(5xx):
+
+500 Internal Server Error: Un error genérico y grave del servidor. Úsalo cuando el servidor encuentra u-
+na condición inesperada que le impide cumplir la solicitud. Este es el que usamos en nuestros catch si 
+algo sale mal con la base de datos u otra lógica interna.
